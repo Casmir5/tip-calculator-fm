@@ -99,6 +99,5 @@ numberOfPpleEl.addEventListener("keyup", function () {
 // resetBtn
 resetBtn.addEventListener("click", function (e) {
   init();
-  // resetBtn.setAttribute("disabled");
   if (!areAllFieldfilled) resetBtn.setAttribute("disabled", "");
 });
