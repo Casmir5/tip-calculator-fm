@@ -12,23 +12,16 @@
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution {
-      font-size: 11px;
-      text-align: center;
-    }
 
-    .attribution a {
-      color: hsl(228, 45%, 44%);
-    }
   </style>
 </head>
 
 <body class="grid place-content-center min-h-screen">
 
   <h2 class="flex flex-col items-center text-lg uppercase tracking-wide ">spli <span>tter</span></h2>
-  <div class="card  bg-white rounded-xl p-8">
-    <div class="flex gap-10 ">
-      <div class="w-1/2">
+  <div class="card  bg-white rounded-xl p-8 sm:p-7">
+    <div class="flex gap-10 flex-col sm:flex-col md:flex-row xl:flex-row  lg:flex-row">
+      <div class="w-full">
         <form class="mb-5" action="">
           <div class="relative">
             <label for="">Bill</label>
@@ -36,14 +29,14 @@
           </div>
           <input class="w-full bg-slate-100 p-2 rounded-md text-right  outline-emerald-400" id="bills" type="number">
         </form>
-        <label for=""> Select Tip %</label>
-        <div class="flex flex-wrap justify-between w-full  mb-5 tips">
+        <label c for=""> Select Tip %</label>
+        <div class="flex flex-wrap justify-between w-full  mb-5 mt-2 tips">
           <button id="5">5%</button>
           <button id="10">10%</button>
           <button id="15">15%</button>
           <button id="25">25%</button>
-          <button id="10">10%</button>
-          <input id="custom-tip" class="bg-slate-200" type="number" placeholder="Custom">
+          <button id="50">50%</button>
+          <input id="custom-tip" class="bg-slate-200  outline-emerald-400" type="number" placeholder="Custom">
         </div>
         <form action="">
           <div class="flex justify-between">
@@ -54,43 +47,34 @@
           <input class="w-full bg-slate-100 p-2 rounded-md text-right  outline-emerald-400" id="people" type="number">
         </form>
       </div>
-      <div class="w-1/2 box-result p-6 rounded-md flex flex-col justify-between ">
+      <div class="w-full   box-result p-6 rounded-md flex flex-col justify-between ">
         <div>
           <div class="flex justify-between mb-5">
             <p class="flex flex-col capitalize text-slate-50">tip amount <span
                 class="lowercase text-sm text-emerald-200">/ person</span>
             </p>
-            <p class="text-2xl">$<span class="text-4xl" id="tip-amount">0.00</span></p>
+            <p class="text-2xl text-my-green flex"> <span class="self-center">$</span><span class="text-4xl"
+                id="tip-amount">0.00</span></p>
           </div>
           <div class="flex justify-between">
             <p class="flex flex-col capitalize text-slate-50">total <span class="lowercase text-sm  text-emerald-200">/
                 person</span>
             </p>
-            <p class="text-2xl">$<span class="text-4xl" id="tip-total">0.00</span></p>
+            <p class="text-2xl text-my-green flex"> <span class="self-center">$</span><span class="text-4xl"
+                id="tip-total">0.00</span></p>
           </div>
         </div>
         <div class="w-full">
-          <button class="w-full" id="btn-reset">Reset</button>
+          <button disabled class="w-full  disabled:opacity-20 btn-reset" id="btn-reset">Reset</button>
         </div>
 
       </div>
     </div>
   </div>
-  <!-- 
-
-
-
-  Tip Amount
-  / person
-
-  Total
-  / person
-
-  Reset -->
 
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-    Coded by <a href="#">Your Name Here</a>.
+    Coded by <a href="#">Chidubem💗</a>.
   </div>
   <script src="index.js"></script>
 </body>

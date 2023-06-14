@@ -1,25 +1,3 @@
-<!-- const inputs = document.querySelectorAll("input");
-// const error = document.querySelector(".error");
-// // const inputsVal = document.querySelectorAll("input").value;
-// // console.log(inputsVal);
-// // console.log(inputs);
-
-// for (let i = 0; i < inputs.length; i++) {
-//   inputs[i].addEventListener("keyup", function (e) {
-//     console.log(inputs[i].value);
-
-//     if (inputs[i].value == 0) {
-//       error.classList.remove("hidden");
-//       inputs[i].classList.remove("outline-emerald-400");
-//       inputs[i].classList.add("outline-red-400");
-//     } else {
-//       error.classList.add("hidden");
-//       inputs[i].classList.remove("outline-red-500");
-//       inputs[i].classList.add("outline-emerald-400");
-//     }
-//   });
-// } -->
-
 # Front-end Style Guide
 
 ## Layout

@@ -6,39 +6,55 @@ const totalTipsEL = document.querySelector("#tip-total");
 const resetBtn = document.querySelector("#btn-reset");
 const customInput = document.querySelector("#custom-tip");
 
-console.log(customInput.value);
-// console.log(tipsAmountEL, totalTipsEL);
+let tipsArr,
+  tipInPercent,
+  calcTipInPercent,
+  hasbtnBeenClicked,
+  hasCustomInputBeenClicked,
+  areAllFieldfilled;
 
-let tipsArr = [];
-let currentTipInPercent;
-let tipInPercent;
-let hasbtnBeenClicked = false;
-let hasCustomInputBeenClicked = false;
+const init = function () {
+  tipsArr = [];
+  tipInPercent = 0;
+  calcTipInPercent = 0;
+  tipsAmountEL.textContent = "0.00";
+  totalTipsEL.textContent = "0.00";
+  billEl.value = "";
+  numberOfPpleEl.value = "";
+  (hasbtnBeenClicked = false),
+    (hasCustomInputBeenClicked = false),
+    (areAllFieldfilled = false);
+};
 
+init();
+
+// buttons
 for (const [id, tip] of btnTips.entries()) {
   hasbtnBeenClicked = true;
-  tip.addEventListener("click", function (e) {
-    tipInPercent = Number(e.target.id) / Number(100); //??
-    // Number(customInput.value) / Number(100);
-    console.log(tipInPercent);
-    tipsArr.push(tipInPercent);
 
-    currentTipInPercent = [...tipsArr].pop();
+  tip.addEventListener("click", function (e) {
+    customInput.value = "";
+    calcTipInPercent = Number(e.target.id) / Number(100);
+    console.log(calcTipInPercent);
+    tipsArr.push(calcTipInPercent);
+
+    tipInPercent = [...tipsArr].pop();
   });
 }
 
+// custom button
 customInput.addEventListener("keyup", function () {
   hasCustomInputBeenClicked = true;
-  // console.log(customInput.value);
+
   if (hasbtnBeenClicked && hasCustomInputBeenClicked) {
-    tipInPercent = Number(customInput.value) / Number(100);
+    calcTipInPercent = Number(customInput.value) / Number(100);
     tipsArr.push(tipInPercent);
 
-    currentTipInPercent = [...tipsArr].pop();
+    tipInPercent = [...tipsArr].pop();
   }
-  console.log(hasbtnBeenClicked);
 });
 
+// people input
 numberOfPpleEl.addEventListener("keyup", function () {
   const error = document.querySelector(".error");
   if (!billEl.value && hasbtnBeenClicked) {
@@ -51,7 +67,9 @@ numberOfPpleEl.addEventListener("keyup", function () {
     numberOfPpleEl.classList.add("outline-red-400");
     totalTipsEL.textContent = "0.00";
     tipsAmountEL.textContent = "0.00";
+    resetBtn.setAttribute("disabled", "");
   } else {
+    areAllFieldfilled = true;
     error.textContent = "";
 
     numberOfPpleEl.classList.remove("outline-red-400");
@@ -61,29 +79,23 @@ numberOfPpleEl.addEventListener("keyup", function () {
     const bill = billEl.value;
     const people = numberOfPpleEl.value;
 
-    calcTipAmount = (bill * currentTipInPercent) / people;
+    calcTipAmount = (bill * tipInPercent) / people;
     tipAmount = calcTipAmount.toFixed(2);
 
     tipsAmountEL.textContent = tipAmount;
-
-    console.log(tipAmount);
 
     calcTotalTip = bill / people + calcTipAmount;
     totalTip = calcTotalTip.toFixed(2);
     totalTipsEL.textContent = totalTip;
 
-    console.log(totalTip);
+    if (areAllFieldfilled) {
+      resetBtn.removeAttribute("disabled");
+    }
   }
 });
-console.log(resetBtn);
 
+// resetBtn
 resetBtn.addEventListener("click", function (e) {
-  // error.textContent = "";
-  tipsArr = [];
-  currentTipInPercent = 0;
-  tipInPercent = 0;
-  tipsAmountEL.textContent = "0.00";
-  totalTipsEL.textContent = "0.00";
-  billEl.value = "";
-  numberOfPpleEl.value = "";
+  resetBtn.removeAttribute("disabled");
+  init();
 });

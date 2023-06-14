@@ -2,47 +2,35 @@
 @tailwind utilities;
 @tailwind components;
 
-/* -
-- Light grayish cyan: hsl(185, 41%, 84%)
-
-### Neutral
-
-- Very dark cyan: hsl(183, 100%, 15%) *
-// disable color
-- Dark grayish cyan: hsl(186, 14%, 43%)
-
-- Grayish cyan: hsl(184, 14%, 56%)
-- Strong cyan: hsl(172, 67%, 45%)
-- Very light grayish cyan: hsl(189, 41%, 97%)
-- White: hsl(0, 0%, 100%)
-
-## Typography
-
-### Body Copy
-
-- Font size (form inputs): 24px
-
-### Font */
-@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+* {
+  font-family: "Space Mono", monospace;
+}
 
 body {
   background-color: hsl(185, 41%, 84%);
   font-family: "Space Mono", monospace;
 }
 
-/* input {
-  @apply;
-} */
+label {
+  /* font-size: 15px; */
+  font-weight: 500;
+  @apply text-slate-500;
+}
 .tips button,
 .tips input {
   width: 30%;
   @apply text-center text-white  py-1 rounded-md text-lg mb-3;
 }
+.tips button:hover {
+  background-color: hsl(172, 67%, 45%);
+  @apply text-slate-700;
+}
 .tips input {
   @apply text-right  pr-1 text-slate-950;
 }
 .tips input::placeholder {
-  @apply text-center pl-0;
+  @apply text-center;
 }
 
 .tips button,
@@ -53,10 +41,19 @@ body {
   height: 310px;
 }
 .box-result #tip-amount,
-#tip-total {
+#tip-total,
+.text-my-green {
   color: hsl(172, 67%, 45%);
 }
-#btn-reset {
+.btn-reset {
   background-color: hsl(172, 67%, 45%);
   @apply rounded-md py-1 uppercase text-lg;
+}
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
 }
