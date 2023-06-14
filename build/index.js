@@ -46,9 +46,9 @@ for (const [id, tip] of btnTips.entries()) {
 customInput.addEventListener("keyup", function () {
   hasCustomInputBeenClicked = true;
 
-  if (hasbtnBeenClicked && hasCustomInputBeenClicked) {
+  if (hasCustomInputBeenClicked) {
     calcTipInPercent = Number(customInput.value) / Number(100);
-    tipsArr.push(tipInPercent);
+    tipsArr.push(calcTipInPercent);
 
     tipInPercent = [...tipsArr].pop();
   }
@@ -90,12 +90,15 @@ numberOfPpleEl.addEventListener("keyup", function () {
 
     if (areAllFieldfilled) {
       resetBtn.removeAttribute("disabled");
+    } else {
+      resetBtn.setAttribute("disabled");
     }
   }
 });
 
 // resetBtn
 resetBtn.addEventListener("click", function (e) {
-  resetBtn.removeAttribute("disabled");
   init();
+  // resetBtn.setAttribute("disabled");
+  if (!areAllFieldfilled) resetBtn.setAttribute("disabled", "");
 });
